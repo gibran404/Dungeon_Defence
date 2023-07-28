@@ -1,75 +1,70 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
 
-namespace Cainos.PixelArtTopDown_Basic
-{
-    public class TopDownCharacterController : MonoBehaviour
-    {
-        public float speed = 10f;
-        Vector2 lastClickedPos;
+// public class PlayerMovement : MonoBehaviour
+// {
+//     public static List<PlayerMovement> moveableObjects = new List<PlayerMovement>();
+//     public float speed = 10f;
+//     private Vector3 target;
 
-        bool moving;
-
-        private void Update(){
-            if(Input.GetMouseButtonDown(0)){
-                lastClickedPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                moving = true;
-            }
-
-            if (moving && (Vector2)transform.position !=  lastClickedPos){
-                float step = speed * Time.deltaTime;
-                transform.position = Vector2.MoveTowards(transform.position, lastClickedPos, step);
-            }
-            else{
-                moving = false;
-
-            }
-        }
-    }
-}
+//     public bool selected;
+//     public int count;
 
 
+//     void Start()
+//     {
+//         moveableObjects.Add(this);
+//         target = transform.position;
+//         count = 0;
+//     }
 
 
+//     private void Update()
+//     {
+//         if(Input.GetMouseButtonDown(0) && selected)
+//         {
+//             //if ((Vector2)Input.mousePosition == (Vector2)transform.position)
+//             //{
+                
+//                 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+//                 target.z = transform.position.z;
+//                 count++;
+//                 if (count>=2)
+//                 {
+//                     selected = false;
+//                     count = 0;
+//                 }
+//                 //moving = true;
+                
+//             //}
+//         }
+//         float step = speed * Time.deltaTime;
+//         transform.position = Vector3.MoveTowards(transform.position, target, step);
+        
+//     }
+//     private void OnMouseDown()
+//     {
+        
+//         selected = true;
+        
+//         //add an animation or whatever to show it is selected
+//         gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
 
-        // private Animator animator;
-
-        // private void Start()
-        // {
-        //     animator = GetComponent<Animator>();
-        // }
-
-
-        // private void Update()
-        // {
-        //     Vector2 dir = Vector2.zero;
-        //     if (Input.GetKey(KeyCode.A))
-        //     {
-        //         dir.x = -1;
-        //         animator.SetInteger("Direction", 3);
-        //     }
-        //     else if (Input.GetKey(KeyCode.D))
-        //     {
-        //         dir.x = 1;
-        //         animator.SetInteger("Direction", 2);
-        //     }
-
-        //     if (Input.GetKey(KeyCode.W))
-        //     {
-        //         dir.y = 1;
-        //         animator.SetInteger("Direction", 1);
-        //     }
-        //     else if (Input.GetKey(KeyCode.S))
-        //     {
-        //         dir.y = -1;
-        //         animator.SetInteger("Direction", 0);
-        //     }
-
-        //     dir.Normalize();
-        //     animator.SetBool("IsMoving", dir.magnitude > 0);
-
-        //     GetComponent<Rigidbody2D>().velocity = speed * dir;
-        // }
+//         foreach (PlayerMovement obj in moveableObjects)
+//         {
+//             if(obj != this)
+//             {
+//                 obj.selected = false;
+//                 obj.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+//             }
+//         }
+        
+//         // if(moving)
+//         // {
+//         //     selected = false;
+//         //     moving = false;
+//         // }
+        
 //     }
 // }
